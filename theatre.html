@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Pixmax</title>
+  <link rel="shortcut icon" href="./Images/Logo/logoo.jpg" type="image/x-icon">
+
+  <!-- Font  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="./static/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="static/bootstrap.min.css">
+  <link rel="stylesheet" href="static/style-min.css">
+  <link rel="stylesheet" href="cards.css">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Abril+Fatface" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+</head>
+
+<!------------------------Scroll to top button------------------------------------------------>
+<style>
+  .carousel > input[type=radio]:nth-child(5):checked ~ .carousel__next > label:nth-child(1), .carousel > input[type=radio]:nth-child(5):checked ~ .carousel__prev > label:nth-child(4), .carousel > input[type=radio]:nth-child(4):checked ~ .carousel__next > label:nth-child(5), .carousel > input[type=radio]:nth-child(4):checked ~ .carousel__prev > label:nth-child(3), .carousel > input[type=radio]:nth-child(3):checked ~ .carousel__next > label:nth-child(4), .carousel > input[type=radio]:nth-child(3):checked ~ .carousel__prev > label:nth-child(2), .carousel > input[type=radio]:nth-child(2):checked ~ .carousel__next > label:nth-child(3), .carousel > input[type=radio]:nth-child(2):checked ~ .carousel__prev > label:nth-child(1), .carousel > input[type=radio]:nth-child(1):checked ~ .carousel__next > label:nth-child(2), .carousel > input[type=radio]:nth-child(1):checked ~ .carousel__prev > label:nth-child(5) {
+  opacity: 1 !important;
+  z-index: 3;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+  .container {
+  width: 1500px;
+  min-width: 900px;
+  margin: 50px auto;
+}
+
+.carousel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.carousel > input[type=radio] {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  top: 0;
+}
+.carousel > input[type=radio]:checked ~ .carousel__items .carousel__item,
+.carousel > input[type=radio]:checked ~ .carousel__prev > label,
+.carousel > input[type=radio]:checked ~ .carousel__next > label {
+  opacity: 0;
+}
+.carousel > input[type=radio]:nth-child(1):checked ~ .carousel__items .carousel__item:nth-child(1) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(1):checked ~ .carousel__nav > label:nth-child(1) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(2):checked ~ .carousel__items .carousel__item:nth-child(2) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(2):checked ~ .carousel__nav > label:nth-child(2) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(3):checked ~ .carousel__items .carousel__item:nth-child(3) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(3):checked ~ .carousel__nav > label:nth-child(3) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(4):checked ~ .carousel__items .carousel__item:nth-child(4) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(4):checked ~ .carousel__nav > label:nth-child(4) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(5):checked ~ .carousel__items .carousel__item:nth-child(5) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(5):checked ~ .carousel__nav > label:nth-child(5) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel__items {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+.carousel__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: opacity 2s;
+  -webkit-transition: opacity 2s;
+}
+.carousel__item img {
+  width: 100%;
+  vertical-align: middle;
+}
+.carousel__prev > label, .carousel__next > label {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  opacity: 0;
+  z-index: 2;
+}
+.carousel__prev > label:hover, .carousel__prev > label:focus, .carousel__next > label:hover, .carousel__next > label:focus {
+  opacity: 0.5 !important;
+}
+.carousel__prev > label:before, .carousel__prev > label:after, .carousel__next > label:before, .carousel__next > label:after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+}
+.carousel__prev > label:before, .carousel__next > label:before {
+  background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%), linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+  width: 60%;
+  height: 60%;
+  top: 20%;
+}
+.carousel__prev > label {
+  left: 2%;
+}
+.carousel__prev > label:before {
+  left: 35%;
+  top: 20%;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.carousel__next > label {
+  right: 2%;
+}
+.carousel__next > label:before {
+  left: 10%;
+  transform: rotate(315deg);
+  -webkit-transform: rotate(315deg);
+}
+.carousel__nav {
+  position: absolute;
+  bottom: 3%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 3;
+}
+.carousel__nav > label {
+  border: 1px solid #fff;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 0.125%;
+  width: 20px;
+  height: 20px;
+}
+  .poster {
+    box-shadow: 0 0 15px red !important;
+  
+  }
+  #scrollToTopButton {
+    position: fixed;
+    bottom: 40px;
+    right: 25px;
+    font-size: 25px;
+    z-index: 99;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    color: black;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 6px;
+    border-radius: 50%;
+  }
+
+#scrollToTopButton:hover,i:hover {
+    background-color: white;
+    color: red;
+  }
+
+  .maincontainer h3 {
+    color: white;
+    text-align: center;
+}
+
+.container {
+  text-align: center;
+}
+#navbarNav.nav-item.nav-link a:hover{
+  color: red;
+}
+.nav-link:hover{
+  color: red;
+}
+
+#header-nav .nav-link a:hover{
+  color: red;
+}
+
+h1 {
+  font-size: 2.2em;
+}
+
+.flip {
+  position: relative;
+}
+.flip > .front,
+.flip > .back {
+  display: block;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+}
+.flip > .front {
+  transform: rotateY(0deg);
+}
+.flip > .back {
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(-180deg);
+}
+.flip:hover > .front {
+  transform: rotateY(180deg);
+}
+.flip:hover > .back {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+.flip.flip-vertical > .back {
+  transform: rotateX(-180deg);
+}
+.flip.flip-vertical:hover > .front {
+  transform: rotateX(180deg);
+}
+.flip.flip-vertical:hover > .back {
+  transform: rotateX(0deg);
+}
+
+.flip {
+  position: relative;
+  display: inline-block;
+  margin-right: 2px;
+  margin-bottom: 1em;
+  width: 400px;
+}
+.flip > .front,
+.flip > .back {
+  display: block;
+  color: white;
+  width: inherit;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 220px;
+  padding: 1em 2em;
+  background: #313131;
+  border-radius: 10px;
+}
+.flip > .front p,
+.flip > .back p {
+  font-size: 0.9125rem;
+  line-height: 160%;
+  color: #999;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04), 7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04), 13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04), 19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+}
+
+
+h1, h2, h3, h4 {
+  font-family: "Abril Fatface", serif;
+}
+
+#container1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.slide {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 1s;
+}
+.slide.last-viewed .btn-close:after {
+  transition-delay: 0s;
+}
+.slide.last-viewed .btn-close:before {
+  transition-delay: 0.1s;
+}
+.slide.last-viewed .content .city-info {
+  transition-delay: 0s;
+}
+.slide.last-viewed .content .city-info li:nth-of-type(1) {
+  transition-delay: 0.2s;
+}
+.slide.last-viewed .content .city-info li:nth-of-type(2) {
+  transition-delay: 0.4s;
+}
+.slide.last-viewed .content .city-info li:nth-of-type(3) {
+  transition-delay: 0.6s;
+}
+.slide.last-viewed .content .emblem {
+  transition: all 0.5s;
+  transition-delay: 0s;
+}
+.slide.last-viewed .image, .slide.active .image {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.slide.active {
+  cursor: default;
+}
+.slide.active .overlay {
+  width: 25%;
+  background-size: 100% 100%;
+  transition: all 1.25s;
+  transition-delay: 1.75s;
+}
+.slide.active .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.slide.active .content .title {
+  width: 25%;
+  opacity: 1;
+  transform: translateY(30px);
+  transition: all 1s;
+  transition-delay: 1.25s;
+}
+.slide.active .content .title:after {
+  height: 100%;
+  color: white;
+  overflow: initial;
+}
+.slide.active .content .title:before {
+  transform: scaleX(1);
+  transition-delay: 2s;
+}
+.slide.active .content .city-info {
+  opacity: 1;
+}
+.slide.active .content .city-info li {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slide.active .content .emblem {
+  opacity: 0.8;
+  transform: translateY(100px);
+}
+.slide.active .btn-close {
+  cursor: pointer;
+  pointer-events: auto;
+}
+.slide.active .btn-close:before, .slide.active .btn-close:after {
+  opacity: 1;
+}
+.slide.active .btn-close:after {
+  transform: rotate(45deg) translateX(0px);
+}
+.slide.active .btn-close:before {
+  transform: rotate(-45deg) translateX(0px);
+}
+.slide.anim-in {
+  transition-delay: 0.5s;
+}
+.slide.anim-in .image {
+  top: -20%;
+  left: -140%;
+  height: 140%;
+  width: 140%;
+  -webkit-animation: img-anim-in 1.2s forwards;
+          animation: img-anim-in 1.2s forwards;
+}
+.slide.anim-out {
+  flex: 0;
+  cursor: default;
+  transition-delay: 0.5s;
+}
+.slide.anim-out .image {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-animation: img-anim-out 1.2s forwards;
+          animation: img-anim-out 1.2s forwards;
+}
+.slide:nth-of-type(1).anim-in .image {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.slide:nth-of-type(1).anim-out .image {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.slide:nth-of-type(2).anim-in .image {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.slide:nth-of-type(2).anim-out .image {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.slide:nth-of-type(3).anim-in .image {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.slide:nth-of-type(3).anim-out .image {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.slide:nth-of-type(4).anim-in .image {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+.slide:nth-of-type(4).anim-out .image {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+.slide .image {
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  pointer-events: none;
+  transition: all 1s;
+}
+.slide .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0));
+  background-position: 0 0;
+  background-size: 100% 200%;
+  opacity: 1;
+  pointer-events: none;
+  transition: all 0.5s;
+}
+.slide .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+.slide .content .title {
+  position: absolute;
+  top: -10px;
+  height: 65px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 3em;
+  text-align: center;
+  text-shadow: 0 2px 2px #2f2f2f;
+  color: #3f3f3f;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s;
+}
+.slide .content .title:after {
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 100%;
+  display: block;
+  content: attr(data-title);
+  overflow: hidden;
+  color: #fff59d;
+  transition: all 0.85s;
+}
+.slide .content .title:before {
+  position: absolute;
+  bottom: 15px;
+  display: block;
+  content: "";
+  height: 2px;
+  width: 85%;
+  background: white;
+  box-shadow: 0 2px 6px #2f2f2f;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 1.25s;
+}
+.slide .content .emblem {
+  position: absolute;
+  height: 200px;
+  width: 25%;
+  opacity: 0;
+  transform: translateY(120px);
+  transition: all 1s;
+  transition-delay: 1.75s;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+.slide .content .city-info {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 30px 30px 30px 120px;
+  font-size: 1.25em;
+  color: white;
+  text-shadow: 0 1px 4px #0f0f0f;
+  background-image: linear-gradient(90deg, rgba(20, 20, 20, 0), rgba(20, 20, 20, 0.7));
+  opacity: 0;
+  transition: all 1s;
+  transition-delay: 2s;
+}
+.slide .content .city-info li {
+  position: relative;
+  margin-bottom: 5px;
+  text-align: justify;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.75s;
+}
+.slide .content .city-info li:nth-of-type(1) {
+  transition-delay: 2.7s;
+}
+.slide .content .city-info li:nth-of-type(2) {
+  transition-delay: 2.9s;
+}
+.slide .content .city-info li:nth-of-type(3) {
+  transition-delay: 3.1s;
+}
+.slide .btn-close {
+  position: absolute;
+  z-index: 100;
+  top: 20px;
+  right: 20px;
+  height: 24px;
+  width: 24px;
+  pointer-events: none;
+}
+.slide .btn-close:before, .slide .btn-close:after {
+  position: absolute;
+  top: 12px;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.slide .btn-close:after {
+  transform: rotate(45deg) translateX(-12px);
+  transition-delay: 3s;
+}
+.slide .btn-close:before {
+  transform: rotate(-45deg) translateX(12px);
+  transition-delay: 3.2s;
+}
+.slide:hover:not(.active):not(.anim-out) .image {
+  transform: scale(1.1);
+}
+.slide:hover:not(.active):not(.anim-out) .overlay {
+  opacity: 0.6;
+}
+.slide:hover:not(.active):not(.anim-out) .content .title {
+  opacity: 1;
+  transform: translateY(30px);
+}
+.slide:hover:not(.active):not(.anim-out) .content .title:after {
+  height: 100%;
+}
+
+#codepen-link {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  height: 40px;
+  width: 40px;
+  z-index: 10;
+  border-radius: 50%;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/logo.jpg");
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.7;
+  transition: all 0.25s;
+}
+#codepen-link:hover {
+  opacity: 1;
+  box-shadow: 0 2px 6px #0f0f0f;
+}
+
+@-webkit-keyframes img-anim-in {
+  to {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@keyframes img-anim-in {
+  to {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+@-webkit-keyframes img-anim-out {
+  to {
+    left: -100%;
+  }
+}
+@keyframes img-anim-out {
+  to {
+    left: -100%;
+  }
+}
+
+</style>
+<script>
+  setTimeout(function () {
+    $('.section').fadeToggle();
+  }, 4000);
+  
+
+  window.console = window.console || function(t) {};
+</script>
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+<body>
+  <div class="scroll-bar">
+    <!-- navbar starts -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark" id="header-nav">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="HomePage.html"><img class="logo" src="Images/Logo/logoo.JPG" alt="" width="30"
+            height="24"></a>
+        <button id="nav" class="navbar-toggler" id="nav" style="background-color:#8b0000" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" style="background-color:dark-grey;"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item ">
+              <a class="nav-link active" aria-current="page" href="HomePage.html" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'" style="font-family: Ubuntu;">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="theatre.html" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'" style="font-family: Ubuntu;">Theatre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="movies.html" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'" style="font-family: Ubuntu;" >Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'" style="font-family: Ubuntu;">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html"  onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'" style="font-family: Ubuntu;">Contact Us</a>
+            </li>
+            
+              <!-- Genre dropdown ends-->
+            </li>
+          </ul>
+          <form id="searchForm" class="d-flex">
+            <input class="form-control me-2" type="text" id="searchText" placeholder="Search" aria-label="Search">
+            <button class="btn btn-danger" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+      </nav>
+
+        <!-- navbar ends -->
+        <div style="width: auto; height:600px; padding: 30px;">
+<div id="container1">
+  <div class="slide anim-in">
+    <div class="image" style="background-image: url(Images/yangon.jpg);"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1 class="title" data-title="Yangon"></h1>
+      
+      <ul class="city-info">
+        <li class="country"><h1>Pixamax Yangon Theatre</h1></li><br>
+        <li class="founded">Q4HV+2VW, Phonge Street, Anawrahta Rd, Yangon, Myanmar (Burma)</li><br>
+        <li class="founded">Now Showing: <a class="footer-contact-button" href="thefamilyman.html">Dune</a></li><br>
+        <li class="founded">+959 260 887 035</li><br>
+        <li class="population"></li>
+      </ul>
+    </div>
+    <div class="btn-close"></div>
+  </div>
+  <div class="slide anim-in">
+    <div class="image" style="background-image: url(Images/london.jpg);"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1 class="title" data-title="London"></h1>
+      
+      <ul class="city-info">
+        <li class="country"><h1>Pixamax London Theatre</h1></li><br>
+        <li class="founded">Piccadilly Circus, Corner of Great Windmill Street and, Shaftesbury Ave, London W1D 7DH, United Kingdom</li><br>
+        <li class="founded">Now Showing: <a class="footer-contact-button" href="thefamilyman.html">The Family Man</a></li><br>
+        <li class="founded">+447 607 035</li><br>
+        <li class="population"></li>
+      </ul>
+    </div>
+    <div class="btn-close"></div>
+  </div>
+  <div class="slide anim-in">
+    <div class="image" style="background-image: url(Images/manchester.jpg);"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1 class="title" data-title="Manchester"></h1>
+      
+      <ul class="city-info">
+        <li class="country"><h1>Pixamax Manchester Theatre</h1></li><br>
+        <li class="founded">The Printworks, 27 Withy Grove, Manchester M4 2BS, United Kingdom</li><br>
+        <li class="founded">Now Showing: <a class="footer-contact-button" href="gravity.html">Gravity</a></li><br>
+        <li class="founded">+445 759 274</li><br>
+        <li class="population"></li>
+      </ul>
+    </div>
+    <div class="btn-close"></div>
+  </div>
+  <div class="slide anim-in">
+    <div class="image" style="background-image: url(Images/singapore.jpg);"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1 class="title" data-title="Singapore"></h1>
+      
+     <ul class="city-info">
+        <li class="country"><h1>Pixamax Singapore Theatre</h1></li><br>
+        <li class="founded">Beach Rd, #03/00 GOLDEN MILE TOWER, Singapore 199589</li><br>
+        <li class="founded">Now Showing: <a class="footer-contact-button" href="frozen.html">Frozen II</a></li><br>
+        <li class="founded">+65 8888 8888</li><br>
+        <li class="population"></li>
+      </ul>
+    </div>
+    <div class="btn-close"></div>
+  </div>
+  <div class="slide anim-in">
+    <div class="image" style="background-image: url(Images/bangkok.jpg);"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1 class="title" data-title="Bangkok"></h1>
+      
+      <ul class="city-info">
+        <li class="country"><h1>Pixamax Bangkok Theatre</h1></li><br>
+        <li class="founded">991 Rama I Rd, Pathum Wan, Bangkok 10330, Thailand</li><br>
+        <li class="founded">Now Showing: <a class="footer-contact-button" href="fury.html">Fury</a> &nbsp;<a class="footer-contact-button" href="imtationgame.html">The Imitation Game</a></li><br>
+        <li class="founded">+668 893 882 89</li><br>
+        <li class="population"></li>
+      </ul>
+    </div>
+    <div class="btn-close"></div>
+  </div>
+</div>
+</div>
+    
+    <label class="online" style="color: white; font-family: Ubantu;">Showing Movies</label>
+    <br>
+
+    <div class="all" style="padding-left: 150px">
+<a href="dune.html" style="text-decoration: none;"><div class="flip">
+    <div class="front" style="background-image: url(Images/z2.jpg)" style="padding-left: 150px;">
+       <h1 class="text-shadow">Yangon</hi>
+    </div>
+    <div class="back">
+       <h2>Location</h2>
+       <p>Q4HV+2VW, Phonge Street, Anawrahta Rd, Yangon, Myanmar (Burma).</p>
+    </div>
+</div></a>
+<a href="family.html" style="text-decoration: none;"><div class="flip">
+    <div class="front" style="background-image: url(Images/z3.jpeg)" style="padding-left: 190px;">
+       <h1 class="text-shadow">London</hi>
+    </div>
+    <div class="back">
+       <h2>Location</h2>
+       <p> Piccadilly Circus, Corner of Great Windmill Street and, Shaftesbury Ave, London W1D 7DH, United Kingdom</p>
+    </div>
+</div></a>
+<a href="gravity.html" style="text-decoration: none;"><div class="flip">
+    <div class="front" style="background-image: url(Images/z1.jpg)" style="padding-left: 230px;">
+       <h1 class="text-shadow">Manchester</hi>
+    </div>
+    <div class="back">
+       <h2>Location</h2>
+       <p> The Printworks, 27 Withy Grove, Manchester M4 2BS, United Kingdom</p>
+    </div>
+</div></a>
+
+</div>
+</div>
+<div class="all2" style="padding-left: 360px">
+<a href="frozen.html" style="text-decoration: none;"><div class="flip">
+    <div class="front" style="background-image: url(Images/z4.jpg)" style="padding-left: 190px;">
+       <h1 class="text-shadow">Singapore</hi>
+    </div>
+    <div class="back">
+       <h2 style="color:white; padding-left: 0px;">Location</h2>
+       <p>Beach Rd, #03/00 GOLDEN MILE TOWER, Singapore 199589</p>
+    </div>
+</div></a>
+<a href="imitationgame.html" style="text-decoration: none;"><div class="flip">
+    <div class="front" style="background-image: url(Images/z5.jpg)" style="padding-left: 230px;">
+       <h1 class="text-shadow">Bangkok</hi>
+    </div>
+    <div class="back">
+       <h2 style="color:white; padding-left: 0px;">Location</h2>
+       <p> 991 Rama I Rd, Pathum Wan, Bangkok 10330, Thailand</p>
+    </div>
+</div></a>
+</div>
+<br>
+<br>
+
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  
+      <script id="rendered-js" >
+// no js !!
+//# sourceURL=pen.js
+    </script>
+
+    
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  
+      <script id="rendered-js" >
+// no js !!
+//# sourceURL=pen.js
+    </script>
+
+
+      
+      
+
+    <!-------------------------------Footer-------------------------------->
+    <footer class="footer">
+      <hr class="footer-hr">
+      <div class="footer-content">
+        <div class="footer-left">
+          <a href="HomePage.html"><img class="footer-logo" src="Images/Logo/logoo.JPG" alt="" width="30"
+              height="24"></a>
+          <p>Watch! Chill! Repeat!</p>
+        </div>
+        <div class="footer-middle">
+          <h2 class="footer-heading" style="font-family: Ubuntu;">Follow Us</h2>
+          <ul class="footer-middle-list icons">
+            <a class="footer-links" href="https://www.facebook.com/" target="_blank"><i
+                class="fab fa-facebook-f facebook" style="color:red"></i></a>
+            <a class="footer-links" href="https://twitter.com/login?lang=en" target="_blank"><i
+                class="fab fa-twitter twitter" style="color:red"></i></a>
+            <a class="footer-links" href="https://www.instagram.com/" target="_blank"><i
+                class="fab fa-instagram instagram" style="color:red"></i></a>
+          </ul>
+        </div>
+        <div class="footer-middle">
+          <h2 class="footer-heading" style="font-family: Ubuntu;">Services</h2>
+          <ul class="footer-middle-list">
+ <li class="footer-middle-list-item"><a href="movies.html" style="font-family: Ubuntu;">Enjoy Latest Movies</a> </li>
+            <li class="footer-middle-list-item"><a href="movies.html" style="font-family: Ubuntu;">Coming soon</a> </li>
+            <li class="footer-middle-list-item"><a href="faq.html" style="font-family: Ubuntu;">FAQ</a> </li>
+          </ul>
+        </div>
+       <div class="footer-middle">
+                <h2 class="footer-heading" style="font-family: Ubuntu;"><a href="aboutus.html" style="text-decoration: none; color: white;">About Us</a></h2>
+            </div>
+        <div class="footer-right">
+          <p class="footer-links">
+            <br>
+          <h2 class="footer-heading" style="font-family: Ubuntu;">Contact Us</h2><br>
+          <p class="footer-bottom-tagline" style="font-family: Ubuntu;">Feel free to contact us.</p>
+          <a class="footer-contact-button" href="contactus.html">Contact</a>
+          </p>
+        </div>
+      </div>
+      <hr class="footer-hr">
+      <div class="footer-copyright">
+        <p>Copyright &copy; and &reg; Since
+          <script>
+            document.write(new Date().getFullYear())
+          </script> GUSTO UNIVERSITY WEB CONTEST (GROUP I)
+        </p>
+      </div>
+    </footer>
+
+    <!----------------------scroll back to top button-->
+    <button id="scrollToTopButton" title="Go to top">
+      <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+    </button>
+    <script>
+      $(document).ready(function () {
+        var scrollTopButton = document.getElementById("scrollToTopButton");
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollTopButton.style.display = "block";
+          } else {
+            scrollTopButton.style.display = "none";
+          }
+        }
+
+        $("#scrollToTopButton").click(function () {
+          $('html ,body').animate({ scrollTop: 0 }, 800)
+        });
+      });
+    </script>
+
+    <!-- footer scripts -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/main-min.js"></script>
+
+    <script>
+      jQuery('#waterdrop').raindrops({
+        color: '#292c2f',
+        canvasHeight: 150,
+        density: 0.1,
+        frequency: 20
+      });
+    </script>
+    <script>
+      function logout(){
+        window.location.replace("login.html");
+      }
+      </script>
+    <!-- bootsstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"></script>
+    <script src="./static/script.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+      <script id="rendered-js" >
+(function (window, document, $, undefined) {
+  var $slides, $btnArr;
+
+  function onClick(e) {
+    var $target = $(e.target);
+    if ($target.hasClass('slide') && !$target.hasClass('active') && !$target.siblings().hasClass('active')) {
+      $target.removeClass('anim-in last-viewed').addClass('active');
+      $target.siblings().removeClass('anim-in last-viewed').addClass('anim-out');
+    }
+  }
+
+  function closeSlide(e) {
+    var $slide = $(e.target).parent();
+    $slide.removeClass('active anim-in').addClass('last-viewed');
+    $slide.siblings().removeClass('anim-out').addClass('anim-in');
+  }
+
+  $(function () {
+    $slides = $('.slide');
+    $btnArr = $slides.find('.btn-close');
+    $slides.on('click', onClick);
+    $btnArr.on('click', closeSlide);
+  });
+})(this, document, jQuery);
+//# sourceURL=pen.js
+    </script>
+</body>
+
+</html>
+  

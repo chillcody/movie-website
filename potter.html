@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Pixmax</title>
+  <link rel="shortcut icon" href="./Images/Logo/logoo.jpg" type="image/x-icon">
+
+  <!-- Font  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="./static/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="static/bootstrap.min.css">
+  <link rel="stylesheet" href="static/style-min.css">
+  <link rel="stylesheet" href="cards.css">
+
+</head>
+
+<!------------------------Scroll to top button------------------------------------------------>
+<style>
+  .carousel > input[type=radio]:nth-child(5):checked ~ .carousel__next > label:nth-child(1), .carousel > input[type=radio]:nth-child(5):checked ~ .carousel__prev > label:nth-child(4), .carousel > input[type=radio]:nth-child(4):checked ~ .carousel__next > label:nth-child(5), .carousel > input[type=radio]:nth-child(4):checked ~ .carousel__prev > label:nth-child(3), .carousel > input[type=radio]:nth-child(3):checked ~ .carousel__next > label:nth-child(4), .carousel > input[type=radio]:nth-child(3):checked ~ .carousel__prev > label:nth-child(2), .carousel > input[type=radio]:nth-child(2):checked ~ .carousel__next > label:nth-child(3), .carousel > input[type=radio]:nth-child(2):checked ~ .carousel__prev > label:nth-child(1), .carousel > input[type=radio]:nth-child(1):checked ~ .carousel__next > label:nth-child(2), .carousel > input[type=radio]:nth-child(1):checked ~ .carousel__prev > label:nth-child(5) {
+  opacity: 1 !important;
+  z-index: 3;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+  .container {
+  width: 1500px;
+  min-width: 900px;
+  margin: 50px auto;
+}
+
+.carousel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.carousel > input[type=radio] {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  top: 0;
+}
+.carousel > input[type=radio]:checked ~ .carousel__items .carousel__item,
+.carousel > input[type=radio]:checked ~ .carousel__prev > label,
+.carousel > input[type=radio]:checked ~ .carousel__next > label {
+  opacity: 0;
+}
+.carousel > input[type=radio]:nth-child(1):checked ~ .carousel__items .carousel__item:nth-child(1) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(1):checked ~ .carousel__nav > label:nth-child(1) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(2):checked ~ .carousel__items .carousel__item:nth-child(2) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(2):checked ~ .carousel__nav > label:nth-child(2) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(3):checked ~ .carousel__items .carousel__item:nth-child(3) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(3):checked ~ .carousel__nav > label:nth-child(3) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(4):checked ~ .carousel__items .carousel__item:nth-child(4) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(4):checked ~ .carousel__nav > label:nth-child(4) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(5):checked ~ .carousel__items .carousel__item:nth-child(5) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(5):checked ~ .carousel__nav > label:nth-child(5) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel__items {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+.carousel__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: opacity 2s;
+  -webkit-transition: opacity 2s;
+}
+.carousel__item img {
+  width: 100%;
+  vertical-align: middle;
+}
+.carousel__prev > label, .carousel__next > label {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  opacity: 0;
+  z-index: 2;
+}
+.carousel__prev > label:hover, .carousel__prev > label:focus, .carousel__next > label:hover, .carousel__next > label:focus {
+  opacity: 0.5 !important;
+}
+.carousel__prev > label:before, .carousel__prev > label:after, .carousel__next > label:before, .carousel__next > label:after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+}
+.carousel__prev > label:before, .carousel__next > label:before {
+  background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%), linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+  width: 60%;
+  height: 60%;
+  top: 20%;
+}
+.carousel__prev > label {
+  left: 2%;
+}
+.carousel__prev > label:before {
+  left: 35%;
+  top: 20%;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.carousel__next > label {
+  right: 2%;
+}
+.carousel__next > label:before {
+  left: 10%;
+  transform: rotate(315deg);
+  -webkit-transform: rotate(315deg);
+}
+.carousel__nav {
+  position: absolute;
+  bottom: 3%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 3;
+}
+.carousel__nav > label {
+  border: 1px solid #fff;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 0.125%;
+  width: 20px;
+  height: 20px;
+}
+  .poster {
+    box-shadow: 0 0 15px red !important;
+  
+  }
+  #scrollToTopButton {
+    position: fixed;
+    bottom: 40px;
+    right: 25px;
+    font-size: 25px;
+    z-index: 99;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    color: black;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 6px;
+    border-radius: 50%;
+  }
+
+#scrollToTopButton:hover,i:hover {
+    background-color: white;
+    color: red;
+  }
+
+  .maincontainer h3 {
+    color: white;
+    text-align: center;
+}
+
+.container {
+  text-align: center;
+}
+#navbarNav.nav-item.nav-link a:hover{
+  color: red;
+}
+.nav-link:hover{
+  color: red;
+}
+
+#header-nav .nav-link a:hover{
+  color: red;
+}
+
+h1 {
+  font-size: 2.2em;
+}
+
+.flip {
+  position: relative;
+}
+.flip > .front,
+.flip > .back {
+  display: block;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+}
+.flip > .front {
+  transform: rotateY(0deg);
+}
+.flip > .back {
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(-180deg);
+}
+.flip:hover > .front {
+  transform: rotateY(180deg);
+}
+.flip:hover > .back {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+.flip.flip-vertical > .back {
+  transform: rotateX(-180deg);
+}
+.flip.flip-vertical:hover > .front {
+  transform: rotateX(180deg);
+}
+.flip.flip-vertical:hover > .back {
+  transform: rotateX(0deg);
+}
+
+.flip {
+  position: relative;
+  display: inline-block;
+  margin-right: 2px;
+  margin-bottom: 1em;
+  width: 400px;
+}
+.flip > .front,
+.flip > .back {
+  display: block;
+  color: white;
+  width: inherit;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 220px;
+  padding: 1em 2em;
+  background: #313131;
+  border-radius: 10px;
+}
+.flip > .front p,
+.flip > .back p {
+  font-size: 0.9125rem;
+  line-height: 160%;
+  color: #999;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04), 7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04), 13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04), 19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+}
+
+.text-block{
+  position: absolute;
+  bottom: 200px;
+  left: 20px;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.card1 {
+  width: 700px;
+  background: #141414;
+  border-radius: 15px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  transition: 0.3s ease-in-out;
+}
+.card1:hover {
+  box-shadow: 0.3px 4px 7px rgba(0, 0, 0, 0.2);
+}
+.card1 .img-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.card1 .img-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+.card1 .content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card1 .content h3 {
+  font-size: 1.1rem;
+}
+.card1 .content p {
+  font-size: 0.8rem;
+  color: gray;
+}
+.card1 .card-action {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.card .card-action .name-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+}
+.card1 .card-action .name-container .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  outline-width: 1px;
+  outline-color: orange;
+  outline-offset: 1px;
+  outline-style: dotted;
+}
+.card1 .card-action .name-container .name-box {
+  display: flex;
+  flex-direction: column;
+}
+.card1 .card-action .name-container .name-box span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.card1 .card-action .name-container .name-box small {
+  color: gray;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    margin: 1rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .card {
+    grid-template-columns: 1fr;
+    margin: 1rem;
+  }
+}
+
+
+
+</style>
+<script>
+  setTimeout(function () {
+    $('.section').fadeToggle();
+  }, 4000);
+  
+</script>
+
+<script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+<body>
+  
+
+
+
+  <div class="scroll-bar">
+    <!-- navbar starts -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark" id="header-nav">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="HomePage.html"><img class="logo" src="Images/Logo/logoo.JPG" alt="" width="30"
+            height="24"></a>
+        <button id="nav" class="navbar-toggler" id="nav" style="background-color:#8b0000" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" style="background-color:dark-grey;"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item ">
+              <a class="nav-link active" aria-current="page" href="HomePage.html" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="theatre.html" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'">Theatre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="movies.html" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'" >Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html"  onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'">Contact Us</a>
+            </li>
+            
+              <!-- Genre dropdown ends-->
+            </li>
+          </ul>
+          <form id="searchForm" class="d-flex">
+            <input class="form-control me-2" type="text" id="searchText" placeholder="Search" aria-label="Search">
+            <button class="btn btn-danger" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+      </nav>
+
+        <!-- navbar ends -->
+
+        <div style="position: relative; width: 100%; height: 1000px; font-family: ubuntu;"> 
+                 
+                 
+                 <img src="Images/p1.jpg" style="width: 100%; height:820px;">
+
+                 <div class="text-block">
+                  <h3> Harry Potter and the Half-Blood Prince</h3>
+                  <p> Category:Fantasy | &nbsp; Audience: PG-20 | &nbsp; Release Date: 28 July 2022  | &nbsp; Duration:1h 45m</p>
+                  <br>
+
+                  <a href="booking.html"><button class="btn btn-danger" type="submit">Pre-order</button></a>
+
+                   
+                 </div>
+
+ 
+        </div>
+
+        
+
+      <center>
+
+      
+          
+      <div class="card1" >
+  <div class="img-box">
+    <img src="Images/p2.jpg">
+  </div>
+  <div class="content" style="black; ">
+    <h5 style="color: white; " > <strong>Harry Potter and the Half-Blood Prince </strong></h5> <br>
+    <b><p align="justify">Release Date: 28 July 2022 <br><br> Duration:1h 45min <br><br> Genrs: Fantasy <br><br> Rate: PG-20  <br><br> Director: David Yates</p><b><br>
+
+    <div><h5 style="color: white"><b>Cast<b></h5></div>
+
+    <div class="card-action">
+      <div class="name-container">
+        <img src="Images/p3.jfif" width="130px" height="115px" style="border-radius: 10px;">
+        <p>Daniel</p>
+      
+       
+      </div>
+      <div class="name-container">
+        <img src="Images/p4.jfif" width="130px" height="115px" style="border-radius: 10px;">
+        <p>Ron </p>
+
+    </div>
+
+      <div class="name-container">
+        <img src="Images/p5.jfif" width="130px" height="115px" style="border-radius: 10px;">
+        <p>Emma</p>
+
+    </div>
+  </div>
+</div>
+
+        </div>
+        </center>
+
+        <center>
+        <div style="width:700px; text-align: justify;">
+          <h3 style="padding-top: 30px;">Synopsis</h3>
+          <p>As Death Eaters wreak havoc in both Muggle and Wizard worlds, Hogwarts is no longer a safe haven for students. Though Harry (Daniel Radcliffe) suspects there are new dangers lurking within the castle walls, Dumbledore is more intent than ever on preparing the young wizard for the final battle with Voldemort. Meanwhile, teenage hormones run rampant through Hogwarts, presenting a different sort of danger. Love may be in the air, but tragedy looms, and Hogwarts may never be the same again.</p>
+
+        </div>
+        </center>
+
+
+        <div align="center" style="padding-top: 30px"> 
+          <h5 style=""> Watch Trailer</h5>
+
+        </div>
+
+        <div align="center">
+          
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/tAiy66Xrsz4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+
+
+
+
+    <!-------------------------------Footer-------------------------------->
+    <footer class="footer">
+      <hr class="footer-hr">
+      <div class="footer-content">
+        <div class="footer-left">
+          <a href="HomePage.html"><img class="footer-logo" src="Images/Logo/logoo.JPG" alt="" width="30"
+              height="24"></a>
+          <p class="footer-bottom-tagline">Watch! Chill! Repeat!</p>
+        </div>
+        <div class="footer-middle">
+          <h2 class="footer-heading">Follow Us</h2>
+          <ul class="footer-middle-list icons">
+            <a class="footer-links" href="https://www.facebook.com/" target="_blank"><i
+                class="fab fa-facebook-f facebook" style="color:red"></i></a>
+            <a class="footer-links" href="https://twitter.com/login?lang=en" target="_blank"><i
+                class="fab fa-twitter twitter" style="color:red"></i></a>
+            <a class="footer-links" href="https://www.instagram.com/" target="_blank"><i
+                class="fab fa-instagram instagram" style="color:red"></i></a>
+          </ul>
+        </div>
+        <div class="footer-middle">
+          <h2 class="footer-heading">Services</h2>
+          <ul class="footer-middle-list">
+            <li class="footer-middle-list-item"><a href="movies.html">Enjoy Latest Movies</a> </li>
+            <li class="footer-middle-list-item"><a href="movies.html">Coming soon</a> </li>
+            <li class="footer-middle-list-item"><a href="faq.html">FAQ</a> </li>
+          </ul>
+        </div>
+       <div class="footer-middle">
+                <h2 class="footer-heading"><a href="aboutus.html" style="text-decoration: none; color: white;">About Us</a></h2>
+            </div>
+        <div class="footer-right">
+          <p class="footer-links">
+          <h2 class="footer-heading">Contact Us</h2>
+          <p class="footer-bottom-tagline">Feel free to contact us.</p>
+          <a class="footer-contact-button" href="contactus.html">Contact</a>
+          </p>
+        </div>
+      </div>
+      <hr class="footer-hr">
+      <div class="footer-copyright">
+        <p>Copyright &copy; and &reg; Since
+          <script>
+            document.write(new Date().getFullYear())
+          </script> GUSTO UNIVERSITY WEB CONTEST (GROUP I)
+        </p>
+      </div>
+    </footer>
+
+    <!----------------------scroll back to top button-->
+    <button id="scrollToTopButton" title="Go to top">
+      <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+    </button>
+    <script>
+      $(document).ready(function () {
+        var scrollTopButton = document.getElementById("scrollToTopButton");
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollTopButton.style.display = "block";
+          } else {
+            scrollTopButton.style.display = "none";
+          }
+        }
+
+        $("#scrollToTopButton").click(function () {
+          $('html ,body').animate({ scrollTop: 0 }, 800)
+        });
+      });
+    </script>
+
+    <!-- footer scripts -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/main-min.js"></script>
+
+    <script>
+      jQuery('#waterdrop').raindrops({
+        color: '#292c2f',
+        canvasHeight: 150,
+        density: 0.1,
+        frequency: 20
+      });
+    </script>
+    <script>
+      function logout(){
+        window.location.replace("login.html");
+      }
+      </script>
+    <!-- bootsstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"></script>
+    <script src="./static/script.js"></script>
+</body>
+
+</html>
+  
+</body>
+
+</html>
+  
